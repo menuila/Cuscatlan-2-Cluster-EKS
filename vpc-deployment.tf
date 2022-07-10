@@ -12,7 +12,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  development_cluster = "deployment-eks-${random_string.suffix.result}"
+  cluster_name = "deployment-eks-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {
@@ -35,16 +35,16 @@ module "vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    "kubernetes.io/cluster/${local.development_cluster}" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
   }
 
   public_subnet_tags = {
-    "kubernetes.io/cluster/${local.development_cluster}" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/elb"                      = "1"
   }
 
   private_subnet_tags = {
-    "kubernetes.io/cluster/${local.development_cluster}" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/internal-elb"             = "1"
   }
 }
