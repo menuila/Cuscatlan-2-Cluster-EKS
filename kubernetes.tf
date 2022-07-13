@@ -6,9 +6,9 @@
 # You should **not** schedule deployments and services in this workspace. This keeps workspaces modular (one for provision EKS, another for scheduling Kubernetes resources) as per best practices.
 
 provider "kubernetes" {
-  host                   = data.aws_eks_cluster.cluster1.endpoint
-  token                  = data.aws_eks_cluster_auth.cluster1.token
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster1.certificate_authority.0.data)
+#  host                   = data.aws_eks_cluster.cluster1.endpoint
+#  token                  = data.aws_eks_cluster_auth.cluster1.token
+#  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster1.certificate_authority.0.data)
 }
 
 #provider "kubernetes" {
