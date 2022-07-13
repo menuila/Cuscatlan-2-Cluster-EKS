@@ -1,3 +1,5 @@
+# Deployment cluster
+
 module "eks_deployment" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "17.24.0"
@@ -28,6 +30,18 @@ module "eks_deployment" {
     },
   ]
 }
+
+data "aws_eks_cluster" "cluster_deployment" {
+  name = module.eks.cluster_id_1
+}
+
+data "aws_eks_cluster_auth" "cluster_deployment" {
+  name = module.eks.cluster_id_1
+}
+    
+# ---------------------------------------------------------------------------------
+
+# Development cluster
     
 module "eks-development" {
   source          = "terraform-aws-modules/eks/aws"
@@ -60,11 +74,10 @@ module "eks-development" {
   ]
 }
 
-
-data "aws_eks_cluster" "cluster" {
-  name = module.eks.cluster_id
+data "aws_eks_cluster" "cluster_development" {
+  name = module.eks.cluster_id_2
 }
 
-data "aws_eks_cluster_auth" "cluster" {
-  name = module.eks.cluster_id
+data "aws_eks_cluster_auth" "cluster_development" {
+  name = module.eks.cluster_id_2
 }
