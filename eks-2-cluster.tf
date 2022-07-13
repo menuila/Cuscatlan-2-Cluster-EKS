@@ -1,4 +1,4 @@
-module "eks" {
+module "eks_deployment" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "17.24.0"
   cluster_name    = local.cluster_deployment
@@ -29,7 +29,7 @@ module "eks" {
   ]
 }
     
-module "eks" {
+module "eks-development" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "17.24.0"
   cluster_name    = local.cluster_development
