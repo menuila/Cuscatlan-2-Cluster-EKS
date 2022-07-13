@@ -39,7 +39,7 @@ provider "registry.terraform.io/hashicorp/cloudinit" {
   ]
 }
 
-provider "registry.terraform.io/hashicorp/kubernetes_1" {
+provider "registry.terraform.io/hashicorp/kubernetes1" {
   version     = "2.7.1"
   constraints = ">= 1.11.1, >= 2.0.1"
   hashes = [
@@ -58,7 +58,7 @@ provider "registry.terraform.io/hashicorp/kubernetes_1" {
   ]
 }
 
-provider "registry.terraform.io/hashicorp/kubernetes_2" {
+provider "registry.terraform.io/hashicorp/kubernetes2" {
   version     = "2.7.1"
   constraints = ">= 1.11.1, >= 2.0.1"
   hashes = [
