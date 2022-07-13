@@ -12,6 +12,8 @@ module "eks_deployment" {
   workers_group_defaults = {
     root_volume_type = "gp2"
   }
+  
+  manage_aws_auth = true
 
   worker_groups = [
     {
@@ -55,7 +57,9 @@ module "eks_development" {
   workers_group_defaults = {
     root_volume_type = "gp2"
   }
-
+  
+  manage_aws_auth = true
+    
   worker_groups = [
     {
       name                          = "development-node-1"
