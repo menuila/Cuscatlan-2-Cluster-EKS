@@ -13,8 +13,8 @@ data "aws_availability_zones" "available" {}
 
 locals {
   #cluster_deployment = "deployment-eks-${random_string.suffix.result}"
-  cluster_deployment = "deployment-cluster"
-  cluster_development = "development-cluster"
+  cluster_deployment = "deployment-cluster-${random_string.suffix.result}"
+  cluster_development = "development-cluster-${random_string.suffix.result}"
 
 }
 
@@ -39,16 +39,18 @@ module "vpc" {
 
   tags = {
     "kubernetes.io/cluster/${local.cluster_deployment}" = "shared"
-    #"kubernetes.io/cluster/${local.cluster_development}" = "shared"
+    "kubernetes.io/cluster/${local.cluster_development}" = "shared"
   }
 
   public_subnet_tags = {
     "kubernetes.io/cluster/${local.cluster_deployment}" = "shared"
+    "kubernetes.io/cluster/${local.cluster_development}" = "shared"
     "kubernetes.io/role/elb"                      = "1"
   }
 
   private_subnet_tags = {
     "kubernetes.io/cluster/${local.cluster_deployment}" = "shared"
+    "kubernetes.io/cluster/${local.cluster_development}" = "shared"
     "kubernetes.io/role/internal-elb"             = "1"
   }
 }
