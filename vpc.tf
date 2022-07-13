@@ -13,15 +13,15 @@ data "aws_availability_zones" "available" {}
 
 locals {
   #cluster_deployment = "deployment-eks-${random_string.suffix.result}"
-  cluster_deployment = "deployment-cluster-${random_string.suffix.result}"
-  cluster_development = "development-cluster-${random_string.suffix.result}"
+  cluster_deployment = "deployment-cluster"
+  cluster_development = "development-cluster"
 
 }
 
-resource "random_string" "suffix" {
-  length  = 8
-  special = false
-}
+#resource "random_string" "suffix" {
+#  length  = 8
+#  special = false
+#}
 
 #Configuracion VPC
 module "vpc" {
