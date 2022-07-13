@@ -15,14 +15,14 @@ module "eks_deployment" {
 
   worker_groups = [
     {
-      name                          = "worker-group-deployment-1"
+      name                          = "deployment-node-1"
       instance_type                 = "t2.micro"
       additional_userdata           = "echo foo bar"
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
       asg_desired_capacity          = 1
     },
     {
-      name                          = "worker-group-deployment-2"
+      name                          = "deployment-node-2"
       instance_type                 = "t2.micro"
       additional_userdata           = "echo foo bar"
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
@@ -58,14 +58,14 @@ module "eks_development" {
 
   worker_groups = [
     {
-      name                          = "worker-group-Development-1"
+      name                          = "development-node-1"
       instance_type                 = "t2.micro"
       additional_userdata           = "echo foo bar"
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
       asg_desired_capacity          = 1
     },
     {
-      name                          = "worker-group-Development-2"
+      name                          = "development-node-2"
       instance_type                 = "t2.micro"
       additional_userdata           = "echo foo bar"
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
