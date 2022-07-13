@@ -25,6 +25,11 @@ output "config_map_aws_auth_1" {
   value       = module.eks_deployment.config_map_aws_auth
 }
   
+ output "cluster_deployment" {
+  description = "Kubernetes Deployment Cluster"
+  value       = local.cluster_deployment
+}
+   
 # ---------------------------------------------------------------------------------
   
 # Development outputs
@@ -54,22 +59,17 @@ output "config_map_aws_auth_2" {
   value       = module.eks_development.config_map_aws_auth
 }
 
+output "cluster_development" {
+  description = "Kubernetes Development Cluster"
+  value       = local.cluster_development
+}
 # ---------------------------------------------------------------------------------
+
+# General
   
 output "region" {
   description = "AWS region"
   value       = var.region
 }
-
-output "cluster_deployment" {
-  description = "Kubernetes Deployment Cluster"
-  value       = local.cluster_deployment
-}
-  
-output "cluster_development" {
-  description = "Kubernetes Development Cluster"
-  value       = local.cluster_development
-}
-  
 
 
