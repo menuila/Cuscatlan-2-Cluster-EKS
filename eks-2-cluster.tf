@@ -31,11 +31,11 @@ module "eks_deployment" {
   ]
 }
 
-data "aws_eks_cluster" "cluster_deployment" {
+data "aws_eks_cluster" "cluster1" {
   name = module.eks_deployment.cluster_id_1
 }
 
-data "aws_eks_cluster_auth" "cluster_deployment" {
+data "aws_eks_cluster_auth" "cluster1" {
   name = module.eks_deployment.cluster_id_1
 }
     
@@ -74,10 +74,10 @@ module "eks-development" {
   ]
 }
 
-data "aws_eks_cluster" "cluster_development" {
+data "aws_eks_cluster" "cluster2" {
   name = module.eks_development.cluster_id_2
 }
 
-data "aws_eks_cluster_auth" "cluster_development" {
+data "aws_eks_cluster_auth" "cluster2" {
   name = module.eks_development.cluster_id_2
 }
