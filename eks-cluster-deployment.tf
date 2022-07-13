@@ -1,7 +1,7 @@
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "17.24.0"
-  cluster_name    = local.cluster_name
+  cluster_name    = local.cluster_Deployment
   cluster_version = "1.20"
   subnets         = module.vpc.private_subnets
 
@@ -16,14 +16,14 @@ module "eks" {
       name                          = "worker-group-deployment-1"
       instance_type                 = "t2.micro"
       additional_userdata           = "echo foo bar"
-      additional_security_group_ids = [aws_security_group.worker_group_deployment_mgmt_one.id]
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
       asg_desired_capacity          = 2
     },
     {
       name                          = "worker-group-deployment-2"
       instance_type                 = "t2.micro"
       additional_userdata           = "echo foo bar"
-      additional_security_group_ids = [aws_security_group.worker_group_deployment_mgmt_two.id]
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
       asg_desired_capacity          = 1
     },
   ]
