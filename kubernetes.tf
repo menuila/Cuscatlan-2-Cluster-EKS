@@ -11,8 +11,8 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster_deployment.certificate_authority.0.data)
 }
 
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.cluster_development.endpoint
-  token                  = data.aws_eks_cluster_auth.cluster_development.token
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster_development.certificate_authority.0.data)
-}
+#provider "kubernetes" {
+#  host                   = data.aws_eks_cluster.cluster_development.endpoint
+#  token                  = data.aws_eks_cluster_auth.cluster_development.token
+#  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster_development.certificate_authority.0.data)
+#}
